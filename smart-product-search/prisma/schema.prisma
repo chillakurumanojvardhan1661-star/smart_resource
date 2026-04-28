@@ -1,0 +1,141 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  name        String
+  category    String
+  description String?
+  createdAt   DateTime @default(now())
+  suppliers   SupplierProduct[]
+}
+
+model Supplier {
+  id            String   @id @default(uuid())
+  name          String
+  country       String
+  rating        Float
+  createdAt     DateTime @default(now())
+  products      SupplierProduct[]
+  orders        Order[]
+  reviews       Review[]
+  priceHistories PriceHistory[]
+  scores        SupplierScore?
+}
+
+model SupplierProduct {
+  id          String  @id @default(uuid())
+  productId   String
+  supplierId  String
+  price       Float
+  moq         Int
+  currency    String
+  product     Product  @relation(fields: [productId], references: [id])
+  supplier    Supplier @relation(fields: [supplierId], references: [id])
+}
+
+model Region {
+  id        String   @id @default(uuid())
+  name      String
+  country   String
+  latitude  Float
+  longitude Float
+  demands   DemandData[]
+  supplies  SupplyData[]
+}
+
+model DemandData {
+  id           String   @id @default(uuid())
+  product      String
+  regionId     String
+  demandIndex  Float
+  timestamp    DateTime @default(now())
+  region       Region   @relation(fields: [regionId], references: [id])
+}
+
+model SupplyData {
+  id           String   @id @default(uuid())
+  product      String
+  regionId     String
+  supplyIndex  Float
+  timestamp    DateTime @default(now())
+  region       Region   @relation(fields: [regionId], references: [id])
+}
+
+model Order {
+  id               String   @id @default(uuid())
+  supplierId       String
+  expectedDelivery DateTime
+  actualDelivery   DateTime?
+  status           String   // pending / completed / canceled
+  supplier         Supplier @relation(fields: [supplierId], references: [id])
+}
+
+model Review {
+  id         String   @id @default(uuid())
+  supplierId String
+  rating     Float
+  createdAt  DateTime @default(now())
+  supplier   Supplier @relation(fields: [supplierId], references: [id])
+}
+
+model PriceHistory {
+  id         String   @id @default(uuid())
+  supplierId String
+  product    String
+  price      Float
+  timestamp  DateTime @default(now())
+  supplier   Supplier @relation(fields: [supplierId], references: [id])
+}
+
+model SupplierScore {
+  supplierId       String   @id
+  deliveryScore    Float
+  reviewScore      Float
+  priceStability   Float
+  consistencyScore Float
+  finalScore       Float
+  updatedAt        DateTime @updatedAt
+  supplier         Supplier @relation(fields: [supplierId], references: [id])
+}
+
+model DemandForecast {
+  product          String   @id
+  forecastQuantity Int
+  updatedAt        DateTime @updatedAt
+}
+
+model TradeRestriction {
+  id                 String   @id @default(uuid())
+  product            String
+  originCountry      String
+  destinationCountry String
+  restrictionType    String   // ban, quota, license
+  description        String
+  severity           Int
+  updatedAt          DateTime @updatedAt
+}
+
+model Tariff {
+  id                 String   @id @default(uuid())
+  product            String
+  originCountry      String
+  destinationCountry String
+  dutyPercentage     Float
+  updatedAt          DateTime @updatedAt
+}
+
+model TradeTrend {
+  id           String   @id @default(uuid())
+  product      String
+  country      String
+  month        Int
+  demandIndex  Float
+  supplyIndex  Float
+}

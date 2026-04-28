@@ -1,0 +1,17 @@
+[
+  {
+    "product": "laptop",
+    "country": "India",
+    "monthly_demand": [100, 120, 140, 160, 180, 200]
+  },
+  {
+    "product": "smartphone",
+    "country": "Vietnam",
+    "monthly_demand": [500, 480, 460, 440]
+  },
+  {
+    "product": "coffee_beans",
+    "country": "Brazil",
+    "monthly_demand": [1000, 1005, 998, 1010, 1002]
+  }
+]

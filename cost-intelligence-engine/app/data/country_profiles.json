@@ -1,0 +1,22 @@
+{
+  "China": {
+    "India": {
+      "duty_rate": 0.15,
+      "notes": "Standard electronics and manufacturing trade rate."
+    },
+    "US": {
+      "duty_rate": 0.25,
+      "notes": "Section 301 tariffs."
+    }
+  },
+  "Germany": {
+    "India": {
+      "duty_rate": 0.08,
+      "notes": "EU-India bilateral trade standard."
+    }
+  },
+  "default": {
+    "duty_rate": 0.10,
+    "tax_rate": 0.18
+  }
+}

@@ -1,0 +1,17 @@
+fastapi[standard]==0.110.0
+pydantic==2.6.4
+pydantic-settings==2.2.1
+uvicorn[standard]==0.29.0
+pytest==8.1.1
+pytest-asyncio==0.23.6
+httpx==0.27.0
+numpy==1.26.4
+
+# ── Production additions ──────────────────────────────────────────────────────
+sqlalchemy==2.0.30
+psycopg2-binary==2.9.9          # Postgres driver (falls back to SQLite with no changes)
+python-dotenv==1.0.1
+passlib[bcrypt]==1.7.4
+pyjwt==2.8.0
+python-multipart==0.0.9         # for OAuth2PasswordBearer form support
+openai==1.30.1                  # optional; rule-based fallback if key not set

@@ -1,0 +1,32 @@
+{
+  "China": {
+    "political": 0.4,
+    "currency": 0.3,
+    "logistics": 0.2,
+    "market": 0.3
+  },
+  "India": {
+    "political": 0.3,
+    "currency": 0.4,
+    "logistics": 0.5,
+    "market": 0.4
+  },
+  "USA": {
+    "political": 0.1,
+    "currency": 0.1,
+    "logistics": 0.1,
+    "market": 0.2
+  },
+  "Brazil": {
+    "political": 0.5,
+    "currency": 0.7,
+    "logistics": 0.6,
+    "market": 0.5
+  },
+  "Germany": {
+    "political": 0.1,
+    "currency": 0.1,
+    "logistics": 0.1,
+    "market": 0.1
+  }
+}
