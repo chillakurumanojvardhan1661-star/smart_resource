@@ -1,1 +1,53 @@
-{"test@example.com": {"name": "Antigravity Test", "password": "Password123!", "id": "fad19c28-cdcb-46e8-98b5-050fbba327f4"}, "logistics@test.com": {"role": "Supplier", "name": "Global Logistics", "company_name": "Global Logistics", "password": "Password123!", "country": "Japan", "industry": null, "expected_volume": null, "product_category": "Electronics", "moq": "1000", "id": "494eaf90-e3da-4b6f-b75d-f0cb92d663d7"}, "hub@test.com": {"role": "Sourcing Company", "name": "Sourcing Hub", "company_name": "Sourcing Hub", "password": "Password123!", "country": "Password123!", "industry": "Password123!", "expected_volume": "50,000", "product_category": null, "moq": null, "id": "b14f4df5-4c3a-4aa2-a544-e539f79c9fed"}}
+{
+    "test@example.com": {
+        "name": "Antigravity Test",
+        "password": "Password123!",
+        "id": "fad19c28-cdcb-46e8-98b5-050fbba327f4"
+    },
+    "logistics@test.com": {
+        "role": "Supplier",
+        "name": "Global Logistics",
+        "company_name": "Global Logistics",
+        "password": "Password123!",
+        "country": "Japan",
+        "industry": null,
+        "expected_volume": null,
+        "product_category": "Electronics",
+        "moq": "1000",
+        "id": "494eaf90-e3da-4b6f-b75d-f0cb92d663d7"
+    },
+    "hub@test.com": {
+        "role": "Sourcing Company",
+        "name": "Sourcing Hub",
+        "company_name": "Sourcing Hub",
+        "password": "Password123!",
+        "country": "Password123!",
+        "industry": "Password123!",
+        "expected_volume": "50,000",
+        "product_category": null,
+        "moq": null,
+        "id": "b14f4df5-4c3a-4aa2-a544-e539f79c9fed"
+    },
+    "final@test.com": {
+        "role": "Supplier",
+        "company_name": "Final Supplier",
+        "email": "final@test.com",
+        "password": "Password123!",
+        "country": "Japan",
+        "industry": null,
+        "expected_volume": null,
+        "product_category": "Tech",
+        "moq": "1000"
+    },
+    "source@test.com": {
+        "role": "Sourcing Company",
+        "company_name": "Sourcing Pro",
+        "email": "source@test.com",
+        "password": "password123",
+        "country": "USA",
+        "industry": "Tech",
+        "expected_volume": "5000",
+        "product_category": null,
+        "moq": null
+    }
+}

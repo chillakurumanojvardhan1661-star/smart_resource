@@ -9,6 +9,11 @@ export default function CostIntelligenceView() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [predictionData, setPredictionData] = useState<any>(null);
+  const [mounted, setMounted] = useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const calculateCost = async () => {
     setIsLoading(true);
@@ -139,22 +144,22 @@ export default function CostIntelligenceView() {
           <p className="text-[12px] font-bold text-[#6B7280] uppercase tracking-wider mb-2 text-center mt-4">Final Landed Cost</p>
           <div className="text-center">
             <span className="text-[48px] font-black text-[#FF6A00] tracking-tight">
-              ${landedCost.toLocaleString()}
+              {mounted ? `$${landedCost.toLocaleString()}` : "$0"}
             </span>
           </div>
 
           <div className="mt-6 p-4 rounded-xl border border-[#333333] bg-[#1A1A1A]">
             <div className="flex justify-between items-center mb-2">
               <span className="text-[14px] text-[#A3A3A3]">Base Cost</span>
-              <span className="text-[14px] text-white font-semibold">${exportValue.toLocaleString()}</span>
+              <span className="text-[14px] text-white font-semibold">{mounted ? `$${exportValue.toLocaleString()}` : "$0"}</span>
             </div>
             <div className="flex justify-between items-center mb-2">
               <span className="text-[14px] text-[#A3A3A3]">Logistics</span>
-              <span className="text-[14px] text-white font-semibold">${shippingCost.toLocaleString()}</span>
+              <span className="text-[14px] text-white font-semibold">{mounted ? `$${shippingCost.toLocaleString()}` : "$0"}</span>
             </div>
             <div className="flex justify-between items-center pt-2 border-t border-[#333333]">
               <span className="text-[14px] text-[#A3A3A3]">Est. Risk Premium</span>
-              <span className="text-[14px] text-[#FF6A00] font-semibold">+${riskPremium.toLocaleString()}</span>
+              <span className="text-[14px] text-[#FF6A00] font-semibold">{mounted ? `+$${riskPremium.toLocaleString()}` : "+$0"}</span>
             </div>
           </div>
 
@@ -185,7 +190,7 @@ export default function CostIntelligenceView() {
             <tbody>
               <tr className="border-b border-[#E5E7EB] hover:bg-[#F9FAFB] transition-colors">
                 <td className="p-6 text-[16px] font-semibold text-[#111111]">India</td>
-                <td className="p-6 text-[16px] text-[#6B7280]">${Math.round(landedCost * 1.03).toLocaleString()}</td>
+                <td className="p-6 text-[16px] text-[#6B7280]">{mounted ? `$${Math.round(landedCost * 1.03).toLocaleString()}` : "$0"}</td>
                 <td className="p-6 text-[16px] text-[#6B7280]">$185,000</td>
                 <td className="p-6">
                   <span className="text-[16px] font-bold text-[#FF6A00]">19.8%</span>
@@ -193,7 +198,7 @@ export default function CostIntelligenceView() {
               </tr>
               <tr className="border-b border-[#E5E7EB] hover:bg-[#F9FAFB] transition-colors">
                 <td className="p-6 text-[16px] font-semibold text-[#111111]">United Arab Emirates</td>
-                <td className="p-6 text-[16px] text-[#6B7280]">${Math.round(landedCost * 0.98).toLocaleString()}</td>
+                <td className="p-6 text-[16px] text-[#6B7280]">{mounted ? `$${Math.round(landedCost * 0.98).toLocaleString()}` : "$0"}</td>
                 <td className="p-6 text-[16px] text-[#6B7280]">$192,000</td>
                 <td className="p-6">
                   <span className="text-[16px] font-bold text-[#FF6A00]">26.3%</span>
@@ -201,7 +206,7 @@ export default function CostIntelligenceView() {
               </tr>
               <tr className="hover:bg-[#F9FAFB] transition-colors">
                 <td className="p-6 text-[16px] font-semibold text-[#111111]">United States</td>
-                <td className="p-6 text-[16px] text-[#6B7280]">${Math.round(landedCost).toLocaleString()}</td>
+                <td className="p-6 text-[16px] text-[#6B7280]">{mounted ? `$${Math.round(landedCost).toLocaleString()}` : "$0"}</td>
                 <td className="p-6 text-[16px] text-[#6B7280]">$178,500</td>
                 <td className="p-6">
                   <span className="text-[16px] font-bold text-[#FF6A00]">19.4%</span>
